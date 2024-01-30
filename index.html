@@ -7,7 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <form>
+        <div>
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" id="email" required>
+            <span class="error" id="email-error"></span>
+        </div>
+
+        <div>
+            <label for="ZIP">ZIP : </label>
+            <input type="text" id="ZIP" />
+            <label for="Country">Country : </label>
+            <select id="Country">
+                <option value="ch">Switzerland</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="nl">The Netherlands</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="conf-password">Confirm Password</label>
+            <input type="password" name="conf-password" id="conf-password" required>
+            <span id="password-error" class="error"></span>
+        </div>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+
+
+    </form>
 </body>
 <script src="script.js"></script>
 </html>
