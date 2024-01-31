@@ -1,8 +1,38 @@
 window.onload = () => {
     document.getElementById("Country").onchange = checkZIP;
     document.getElementById("ZIP").oninput = checkZIP;
+    document.getElementById("email").oninput = checkEmail;
+    document.getElementById('password').oninput = checkPassword;
+    document.getElementById('conf-password').oninput = checkPassword;
   };
+
+function checkPassword(){
+    const password = document.getElementById('password');
+    const confPassword = document.getElementById('conf-password');
+    const passwordError = document.getElementById('password-error');
+    if(password.value === confPassword.value){
+        password.setCustomValidity("");
+        confPassword.setCustomValidity("");
+        passwordError.textContent = "";
+    }else{
+        password.setCustomValidity("Passwords don't match");
+        confPassword.setCustomValidity("Dont match");
+        passwordError.textContent = "Passwords don't match";
+    }
+}
   
+function checkEmail(){
+    const email = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+
+    if(!email.checkValidity()){
+        emailError.textContent = 'Please input a valid email';
+    }
+    else{
+        emailError.textContent = '';
+    }
+}
+
 function checkZIP() {
     const constraints = {
       ch: [
@@ -26,14 +56,17 @@ function checkZIP() {
     const country = document.getElementById("Country").value;
   
     const ZIPField = document.getElementById("ZIP");
+    const zipError = document.getElementById('zip-error');
   
     const constraint = new RegExp(constraints[country][0], "");
     console.log(constraint);
   
     if (constraint.test(ZIPField.value)) {
       ZIPField.setCustomValidity("");
+      zipError.textContent = '';
     } else {
-      ZIPField.setCustomValidity(constraints[country][1]);
+      ZIPField.setCustomValidity('invalid');
+      zipError.textContent = constraints[country][1];
     }
   }
   

@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form>
+    <form novalidate>
         <div>
             <label for="email">E-Mail</label>
             <input type="email" name="email" id="email" required>
-            <span class="error" id="email-error"></span>
         </div>
-
+        <span class="error" id="email-error"></span>
+        <br>
         <div>
             <label for="ZIP">ZIP : </label>
-            <input type="text" id="ZIP" />
+            <input type="text" id="ZIP" required>
             <label for="Country">Country : </label>
             <select id="Country">
                 <option value="ch">Switzerland</option>
@@ -25,16 +25,17 @@
                 <option value="nl">The Netherlands</option>
             </select>
         </div>
-
+        <span class="error" id="zip-error"></span>
+        <br>
         <div>
             <label for="password">Password</label>
             <input type="password" name="password" id="password" required>
 
             <label for="conf-password">Confirm Password</label>
             <input type="password" name="conf-password" id="conf-password" required>
-            <span id="password-error" class="error"></span>
         </div>
-
+        <span id="password-error" class="error"></span>
+        <br>
         <div>
             <input type="submit" value="Submit">
         </div>
